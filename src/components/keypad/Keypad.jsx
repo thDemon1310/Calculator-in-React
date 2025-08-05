@@ -31,7 +31,7 @@ const Keypad = () => {
     <div className="w-full h-3/4 grid grid-cols-5 grid-rows-5 gap-2">
       <Back />
       {arr.map((item) => (
-        <Number value={item} />
+        <Number data={item} key={item} />
       ))}
       <Equal />
     </div>
