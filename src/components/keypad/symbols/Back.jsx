@@ -7,8 +7,9 @@ const Back = () => {
   const setNumber = value.setNumber;
   const backBtn = () => {
     setNumber((prevs) => {
-      const lastElement = prevs[prevs.length - 1];
-      return prevs.filter((prev) => prev != lastElement);
+      const newArr = [...prevs];
+      newArr.pop()
+      return newArr;
     });
   };
   return (
