@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { CalculateContest } from "../../../context/calc";
+import { AddElementStateContext } from "../../../context/calc";
 import solve from "../../../modules/calculate";
 
 const Equal = () => {
-  const value = useContext(CalculateContest);
+  const value = useContext(AddElementStateContext);
   const number = value.number;
   return (
     <button

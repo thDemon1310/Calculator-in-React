@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import backImg from "../../../assets/pngwing.com.png";
-import { CalculateContest } from "../../../context/calc";
+import { AddElementStateContext } from "../../../context/calc";
 
 const Back = () => {
-  const value = useContext(CalculateContest);
+  const value = useContext(AddElementStateContext);
   const setNumber = value.setNumber;
   const backBtn = () => {
     setNumber((prevs) => {

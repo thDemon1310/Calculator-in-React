@@ -2,6 +2,7 @@ import React from "react";
 import Back from "./symbols/Back";
 import Number from "./numb/Number";
 import Equal from "./symbols/Equal";
+import Operator from "./operator/Operator";
 const Keypad = () => {
   const arr = [
     "(",
@@ -30,9 +31,13 @@ const Keypad = () => {
   return (
     <div className="w-full h-3/4 grid grid-cols-5 grid-rows-5 gap-2">
       <Back />
-      {arr.map((item) => (
-        <Number data={item} key={item} />
-      ))}
+      {arr.map((item) => {
+        if (typeof item === "string") {
+          return <Operator data={item} key={item} />;
+        } else {
+          return <Number data={item} key={item} />;
+        }
+      })}
       <Equal />
     </div>
   );

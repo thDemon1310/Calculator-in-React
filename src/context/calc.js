@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const CalculateContest = createContext(0);
+const AddElementStateContext = createContext(0);
 
-export { CalculateContest };
+export { AddElementStateContext };
