@@ -8,8 +8,10 @@ const Operator = ({ data }) => {
   const setNumber = value.setNumber;
   const inputOperator = () => {
     // its job is to take state of Number state and transfer it to another state with the symbol
-    setOperator((prev) => [...prev, number, data]);
-    setNumber([])
+    let combineString = number.join("");
+    let wholeNumber = parseInt(combineString, 10); // 10 is telling that the number should be converted to decimen base
+    setOperator((prev) => [...prev, wholeNumber, data]);
+    setNumber([]);
   };
   return (
     <button
