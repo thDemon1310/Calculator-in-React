@@ -1,17 +1,25 @@
 import React, { useContext } from "react";
 import { AddElementStateContext } from "../../../context/calc";
+import calculate from "../../../modules/calculate";
 
 const Operator = ({ data }) => {
   const value = useContext(AddElementStateContext);
   const setOperator = value.setOperator;
   const number = value.number;
   const setNumber = value.setNumber;
-  const inputOperator = () => {
+  const operator = value.operator;
+  const inputOperator = async () => {
     // its job is to take state of Number state and transfer it to another state with the symbol
     let combineString = number.join("");
     let wholeNumber = parseInt(combineString, 10); // 10 is telling that the number should be converted to decimen base
-    setOperator((prev) => [...prev, wholeNumber, data]);
-    setNumber([]);
+    if (operator.length == 0) {
+      setOperator((prev) => [...prev, wholeNumber, data]);
+      setNumber([]);
+    } else if (typeof operator[1] == "string") {
+      const resolved = calculate(wholeNumber, operator);
+      setOperator(resolved);
+      setNumber([]);
+    }
   };
   return (
     <button
