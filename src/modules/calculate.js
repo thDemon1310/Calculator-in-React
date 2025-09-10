@@ -3,19 +3,19 @@ const calculate = (wholeNum, operaState) => {
   switch (key) {
     case "+": {
       const sum = wholeNum + operaState[0];
-      return [sum, "+"];
+      return sum;
     }
     case "-": {
       const substract = operaState[0] - wholeNum;
-      return [substract, "-"];
+      return substract;
     }
     case "*": {
       const multiplay = wholeNum * operaState[0];
-      return [multiplay, "*"];
+      return multiplay;
     }
     case "/": {
       const devide = operaState[0] / wholeNum;
-      return [devide, "/"];
+      return devide;
     }
     default:
       break;

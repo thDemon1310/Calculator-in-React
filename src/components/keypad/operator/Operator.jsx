@@ -17,7 +17,7 @@ const Operator = ({ data }) => {
       setNumber([]);
     } else if (typeof operator[1] == "string") {
       const resolved = calculate(wholeNumber, operator);
-      setOperator(resolved);
+      setOperator([resolved, data]);
       setNumber([]);
     }
   };
