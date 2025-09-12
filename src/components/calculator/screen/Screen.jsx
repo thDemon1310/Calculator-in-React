@@ -1,12 +1,11 @@
-import React from 'react'
-
 const Screen = () => {
   return (
-    <div className=''>
-        <div className="previous"></div>
-        <div className="current"></div>
+    <div className=" ">
+      <div className="previous"></div>
+      <div className="current"></div>
+      hi
     </div>
-  )
-}
+  );
+};
 
-export default Screen
+export default Screen;

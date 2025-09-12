@@ -1,4 +1,3 @@
-import React from "react";
 import StrBtn from "./StrBtn";
 import NumBtn from "./NumBtn";
 const arr = [
@@ -23,12 +22,12 @@ const arr = [
 ];
 const Keypad = () => {
   return (
-    <div>
+    <div className="grid grid-cols-4">
       {arr.map((symbol) => {
         if (typeof symbol == "string") {
-          return <StrBtn btn={symbol} />;
+          return <StrBtn btn={symbol} key={arr.indexOf(symbol)} />;
         } else {
-          return <NumBtn btn={symbol} />;
+          return <NumBtn btn={symbol} key={arr.indexOf(symbol)} />;
         }
       })}
     </div>
