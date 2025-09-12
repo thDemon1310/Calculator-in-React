@@ -22,7 +22,7 @@ const arr = [
 ];
 const Keypad = () => {
   return (
-    <div className="grid grid-cols-4">
+    <div className="grid grid-cols-4  text-4xl">
       {arr.map((symbol) => {
         if (typeof symbol == "string") {
           return <StrBtn btn={symbol} key={arr.indexOf(symbol)} />;
