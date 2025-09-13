@@ -1,5 +1,6 @@
-import Screen from "./screen/Screen";
-import Keypad from "./keypad/Keypad";
+import Keypad from "../keypad/Keypad";
+import Screen from "../screen/Screen";
+
 
 const Calculator = () => {
   return (
