@@ -8,11 +8,20 @@ const ACTIONS = {
 const reducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.ADD_DIGIT:
+      console.log(state);
       return {
         ...state,
         currentOperand: `${state.currentOperand || ""}${action.payload}`,
       };
-
+    case ACTIONS.CHOOSE_OPERATION:
+      return {
+        ...state,
+        previousOperand: `${state.currentOperand}`,
+        currentOperand: "",
+        operation: `${action.payload}`,
+      };
+      case ACTIONS.CLEAR:
+        return ""
     default:
       break;
   }
