@@ -6,7 +6,7 @@ import { OperationContext } from "./context/operationContext";
 const App = () => {
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
     reducer,
-    {}
+    { currentOperand: 0 }
   );
   return (
     <>
