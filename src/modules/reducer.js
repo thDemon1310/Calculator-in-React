@@ -75,9 +75,29 @@ const reducer = (state, action) => {
         currentOperand: remaningDegit,
       };
     }
+    case ACTIONS.EVALUATE:
+      if (
+        state.currentOperand.length !== 0 &&
+        state.previousOperand.length !== 0
+      ) {
+        let evaluatedTotal = total(state);
+        return {
+          ...state,
+          previousOperand: "",
+          currentOperand: evaluatedTotal,
+          operation: "",
+        };
+      } else {
+        return {
+          ...state,
+          currentOperand: state.previousOperand,
+          operation: "",
+          previousOperand: "",
+        };
+      }
 
     default:
-      break;
+      state;
   }
 };
 export { ACTIONS };

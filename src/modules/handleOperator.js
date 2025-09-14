@@ -21,6 +21,12 @@ const operator = (dispatch, btn) => {
       };
       return dispatch(action);
     }
+    case "=": {
+      const action = {
+        type: ACTIONS.EVALUATE,
+      };
+      return dispatch(action);
+    }
     default: {
       const action = {
         type: ACTIONS.CHOOSE_OPERATION,

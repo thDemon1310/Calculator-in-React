@@ -6,7 +6,7 @@ import { OperationContext } from "./context/operationContext";
 const App = () => {
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
     reducer,
-    { currentOperand: 0 },
+    { currentOperand: "0", previousOperand: "", operation: "" } // I have not set the value of previousOperand, operation so this was causing the issue with splice in del and operator
   );
   return (
     <>

@@ -4,28 +4,22 @@ const total = (state) => {
     previousOperand: prevNum,
     operation: operator,
   } = state;
+  currNum = parseFloat(currNum);
+  prevNum = parseFloat(prevNum);
   switch (operator) {
     case "+": {
-      currNum = Number(currNum);
-      prevNum = Number(prevNum);
       const evaluatedTotal = prevNum + currNum;
       return evaluatedTotal;
     }
     case "-": {
-      currNum = Number(currNum);
-      prevNum = Number(prevNum);
       const evaluatedTotal = prevNum - currNum;
       return evaluatedTotal;
     }
     case "÷": {
-      currNum = Number(currNum);
-      prevNum = Number(prevNum);
       const evaluatedTotal = prevNum / currNum;
       return evaluatedTotal;
     }
     case "*": {
-      currNum = Number(currNum);
-      prevNum = Number(prevNum);
       const evaluatedTotal = prevNum * currNum;
       return evaluatedTotal;
     }
