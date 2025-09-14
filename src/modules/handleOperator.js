@@ -15,6 +15,12 @@ const operator = (dispatch, btn) => {
       };
       return dispatch(action);
     }
+    case "DEL": {
+      const action = {
+        type: ACTIONS.DELETE_DIGIT,
+      };
+      return dispatch(action);
+    }
     default: {
       const action = {
         type: ACTIONS.CHOOSE_OPERATION,

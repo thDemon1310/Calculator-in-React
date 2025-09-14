@@ -1,3 +1,5 @@
+import total from "./handleTotal";
+
 const ACTIONS = {
   ADD_DIGIT: "add-digit",
   CHOOSE_OPERATION: "choose-operation",
@@ -19,13 +21,32 @@ const reducer = (state, action) => {
         currentOperand: `${state.currentOperand || ""}${action.payload}`,
       };
     }
-    case ACTIONS.CHOOSE_OPERATION:
+    case ACTIONS.CHOOSE_OPERATION: {
+      if (state.currentOperand.length == 0) {
+        return {
+          ...state,
+          operation: `${action.payload}`,
+        };
+      }
+      if (
+        state.currentOperand.length !== 0 &&
+        state.previousOperand.length !== 0
+      ) {
+        let evaluatedTotal = total(state);
+        return {
+          ...state,
+          previousOperand: evaluatedTotal,
+          currentOperand: "",
+          operation: `${action.payload}`,
+        };
+      }
       return {
         ...state,
         previousOperand: `${state.currentOperand}`,
         currentOperand: "",
         operation: `${action.payload}`,
       };
+    }
     case ACTIONS.CLEAR:
       return {
         ...state,
@@ -33,6 +54,28 @@ const reducer = (state, action) => {
         currentOperand: "0",
         operation: "",
       };
+    case ACTIONS.DELETE_DIGIT: {
+      const remaningDegit = state.currentOperand.slice(0, -1);
+      if (state.currentOperand === "0") {
+        return state;
+      }
+      if (
+        state.currentOperand.length === 0 &&
+        state.previousOperand.length !== 0
+      ) {
+        return {
+          ...state,
+          previousOperand: "",
+          currentOperand: state.previousOperand,
+          operation: "",
+        };
+      }
+      return {
+        ...state,
+        currentOperand: remaningDegit,
+      };
+    }
+
     default:
       break;
   }
